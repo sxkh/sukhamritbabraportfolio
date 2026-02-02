@@ -106,7 +106,7 @@
             left: 0;
             right: 0;
             height: 52px;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -116,7 +116,8 @@
             justify-content: center;
             opacity: 0;
             transform: translateY(-100%);
-            transition: all 0.3s ease;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         nav.visible {
@@ -155,12 +156,28 @@
             color: var(--text);
             text-decoration: none;
             opacity: 0.8;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s, color 0.3s;
             font-weight: 400;
+            position: relative;
         }
         
         .nav-links a:hover {
             opacity: 1;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0071e3;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
         }
         
         /* Section Styling */
@@ -454,6 +471,41 @@
             .glass-card:hover {
                 transform: translateY(-4px) scale(1.01);
             }
+            
+            /* Mobile Navigation */
+            .nav-content {
+                padding: 0 16px;
+            }
+            
+            .nav-logo {
+                font-size: 13px;
+            }
+            
+            .nav-links {
+                gap: 12px;
+            }
+            
+            .nav-links a {
+                font-size: 11px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-content {
+                padding: 0 12px;
+            }
+            
+            .nav-logo {
+                font-size: 12px;
+            }
+            
+            .nav-links {
+                gap: 10px;
+            }
+            
+            .nav-links a {
+                font-size: 10px;
+            }
         }
     </style>
 </head>
@@ -463,7 +515,7 @@
     <header class="hero-cover" id="home">
         <div class="hero-name">Sukhamrit Babra</div>
         <div class="hero-handle">#Electrical Engineer</div>
-        <div class="scroll-indicator" onclick="document.getElementById('experience').scrollIntoView({behavior: 'smooth'})">Scroll</div>
+        <div class="scroll-indicator" onclick="scrollToSection('experience')">Scroll</div>
     </header>
 
     <!-- Navigation (appears after scroll) -->
@@ -471,10 +523,10 @@
         <div class="nav-content">
             <div class="nav-logo">Sukhamrit Babra</div>
             <ul class="nav-links">
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#experience" onclick="scrollToSection('experience'); return false;">Experience</a></li>
+                <li><a href="#projects" onclick="scrollToSection('projects'); return false;">Projects</a></li>
+                <li><a href="#education" onclick="scrollToSection('education'); return false;">Education</a></li>
+                <li><a href="#contact" onclick="scrollToSection('contact'); return false;">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -662,22 +714,53 @@
     </footer>
 
     <script>
-        // Show navbar on scroll
+        // Smooth scroll function with offset for fixed navbar
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const navbarHeight = 52; // Height of the fixed navbar
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20; // Extra 20px padding
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Show/hide navbar on scroll with smooth animation
         const navbar = document.getElementById('navbar');
         const hero = document.querySelector('.hero-cover');
+        let lastScrollY = 0;
+        let ticking = false;
         
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > hero.offsetHeight - 100) {
+        function updateNavbar() {
+            const currentScrollY = window.scrollY;
+            const heroBottom = hero.offsetHeight - 100;
+            
+            // Show navbar after scrolling past hero
+            if (currentScrollY > heroBottom) {
                 navbar.classList.add('visible');
             } else {
                 navbar.classList.remove('visible');
             }
-        });
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        }, { passive: true });
         
         // Intersection Observer for fade-in animations
         const observerOptions = {
             root: null,
-            rootMargin: '0px',
+            rootMargin: '0px 0px -50px 0px',
             threshold: 0.1
         };
         
@@ -690,6 +773,14 @@
         }, observerOptions);
         
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Handle URL hash on page load
+        if (window.location.hash) {
+            const sectionId = window.location.hash.substring(1);
+            setTimeout(() => {
+                scrollToSection(sectionId);
+            }, 100);
+        }
     </script>
 </body>
 </html>
