@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sukhamrit Singh Babra — Electrical Engineer</title>
+    <title>Sukhamrit Singh Babra — Computer & Electrical Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -38,7 +38,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* OFF-WHITE INSPIRED COVER PAGE */
+        /* HERO SECTION - EXACTLY as original with new text */
         .hero-cover {
             min-height: 100vh;
             width: 100%;
@@ -64,12 +64,24 @@
 
         .hero-handle {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: clamp(11px, 1vw, 14px);
-            font-weight: 400;
-            letter-spacing: 0.08em;
+            font-size: clamp(11px, 1vw, 14px); /* EXACTLY as original */
+            font-weight: 400; /* EXACTLY as original */
+            letter-spacing: 0.08em; /* EXACTLY as original */
             color: #000;
-            margin-top: 12px;
+            margin-top: 12px; /* EXACTLY as original */
             text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .hero-passion {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #4a4a4a;
+            margin-top: 24px;
+            max-width: 600px;
+            letter-spacing: -0.01em;
         }
 
         .scroll-indicator {
@@ -99,7 +111,7 @@
             }
         }
         
-        /* Navigation - Floating Pill (appears on scroll) */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -218,7 +230,7 @@
             max-width: 720px;
         }
         
-        /* Glass Cards - Apple Hover Effect */
+        /* Glass Cards */
         .glass-grid {
             display: grid;
             gap: 24px;
@@ -472,7 +484,6 @@
                 transform: translateY(-4px) scale(1.01);
             }
             
-            /* Mobile Navigation */
             .nav-content {
                 padding: 0 16px;
             }
@@ -511,99 +522,30 @@
 </head>
 <body>
 
-    <!-- OFF-WHITE COVER PAGE -->
+    <!-- HERO SECTION -->
     <header class="hero-cover" id="home">
         <div class="hero-name">Sukhamrit Babra</div>
-        <div class="hero-handle">#Electrical Engineer</div>
-        <div class="scroll-indicator" onclick="scrollToSection('experience')">Scroll</div>
+        <div class="hero-handle">#COMPUTER & ELECTRICAL ENGINEER</div>
+        <div class="hero-passion">
+            Passionate about embedded systems and firmware development — from bare-metal ARM Cortex-M drivers to ROS 2 autonomous navigation.
+        </div>
+        <div class="scroll-indicator" onclick="scrollToSection('projects')">Scroll</div>
     </header>
 
-    <!-- Navigation (appears after scroll) -->
+    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-content">
             <div class="nav-logo">Sukhamrit Babra</div>
             <ul class="nav-links">
-                <li><a href="#experience" onclick="scrollToSection('experience'); return false;">Experience</a></li>
                 <li><a href="#projects" onclick="scrollToSection('projects'); return false;">Projects</a></li>
+                <li><a href="#experience" onclick="scrollToSection('experience'); return false;">Experience</a></li>
                 <li><a href="#education" onclick="scrollToSection('education'); return false;">Education</a></li>
                 <li><a href="#contact" onclick="scrollToSection('contact'); return false;">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- REST OF SITE -->
-    <section id="experience">
-        <div class="section-header">
-            <span class="section-eyebrow">Professional</span>
-            <h2 class="section-title">Experience</h2>
-            <p class="section-description">
-                Electrical design and embedded systems engineering for commercial, healthcare, and industrial applications.
-            </p>
-        </div>
-        
-        <div class="glass-grid">
-            <div class="glass-card fade-in">
-                <h3>NORR Limited</h3>
-                <div class="meta">Electrical Design Intern — May 2024 to April 2025</div>
-                <p>Executed electrical design for major commercial and healthcare projects including Sunnybrook Health Sciences Centre, Procter & Gamble, Starbucks, Chipotle, Trafferox, and Pureline.</p>
-                <ul class="card-list">
-                    <li>Produced 100+ electrical drawings including panel schedules and power layouts using Revit MEP and AutoCAD</li>
-                    <li>Achieved NEC, OBC, and CSA compliance across all deliverables</li>
-                    <li>Led Chipotle project 2 weeks ahead of schedule coordinating RFIs, CCNs, and CRRs</li>
-                    <li>Performed short-circuit and load calculations with field reviews</li>
-                </ul>
-                <div class="pills">
-                    <span class="pill">Revit MEP</span>
-                    <span class="pill">AutoCAD</span>
-                    <span class="pill">NEC/OBC/CSA</span>
-                    <span class="pill">QA/QC</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education" style="background: white; margin: 0; max-width: 100%; padding: 120px 48px;">
-        <div style="max-width: 1024px; margin: 0 auto;">
-            <div class="section-header">
-                <span class="section-eyebrow">Education</span>
-                <h2 class="section-title">McMaster University</h2>
-                <p class="section-description">
-                    Bachelor of Electrical Engineering — 4th Year<br>
-                    September 2021 to Present
-                </p>
-            </div>
-            
-            <div class="glass-grid grid-2">
-                <div class="glass-card fade-in">
-                    <h3>Core Curriculum</h3>
-                    <p>Specialized in embedded systems, high-performance programming, and control systems.</p>
-                    <ul class="card-list">
-                        <li>Embedded Systems & Real-time Programming</li>
-                        <li>Computer Communication Networks</li>
-                        <li>Digital Signal Processing</li>
-                        <li>Power Electronics & Control Systems</li>
-                        <li>Data Structures & Algorithms</li>
-                        <li>Microprocessors & Logic Design</li>
-                    </ul>
-                </div>
-                <div class="glass-card fade-in">
-                    <h3>Technical Skills</h3>
-                    <p>Proficient in industry-standard tools for electrical design and embedded development.</p>
-                    <div class="pills" style="margin-top: 20px;">
-                        <span class="pill">C/C++</span>
-                        <span class="pill">Python</span>
-                        <span class="pill">MATLAB</span>
-                        <span class="pill">SystemVerilog</span>
-                        <span class="pill">PCB Design</span>
-                        <span class="pill">Linux</span>
-                        <span class="pill">ROS</span>
-                        <span class="pill">CUDA</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- PROJECTS SECTION - MOVED UP -->
     <section id="projects" class="dark-section">
         <div class="section-header" style="max-width: 1024px; margin: 0 auto 64px;">
             <span class="section-eyebrow">Engineering Innovation</span>
@@ -681,21 +623,98 @@
         </div>
     </section>
 
+    <!-- EXPERIENCE SECTION - MOVED DOWN -->
+    <section id="experience">
+        <div class="section-header">
+            <span class="section-eyebrow">Professional</span>
+            <h2 class="section-title">Experience</h2>
+            <p class="section-description">
+                Electrical design and embedded systems engineering for commercial, healthcare, and industrial applications.
+            </p>
+        </div>
+        
+        <div class="glass-grid">
+            <div class="glass-card fade-in">
+                <h3>NORR Limited</h3>
+                <div class="meta">Electrical Design Intern — May 2024 to April 2025</div>
+                <p>Executed electrical design for major commercial and healthcare projects including Sunnybrook Health Sciences Centre, Procter & Gamble, Starbucks, Chipotle, Trafferox, and Pureline.</p>
+                <ul class="card-list">
+                    <li>Produced 100+ electrical drawings including panel schedules and power layouts using Revit MEP and AutoCAD</li>
+                    <li>Achieved NEC, OBC, and CSA compliance across all deliverables</li>
+                    <li>Led Chipotle project 2 weeks ahead of schedule coordinating RFIs, CCNs, and CRRs</li>
+                    <li>Performed short-circuit and load calculations with field reviews</li>
+                </ul>
+                <div class="pills">
+                    <span class="pill">Revit MEP</span>
+                    <span class="pill">AutoCAD</span>
+                    <span class="pill">NEC/OBC/CSA</span>
+                    <span class="pill">QA/QC</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION - MOVED DOWN -->
+    <section id="education" style="background: white; margin: 0; max-width: 100%; padding: 120px 48px;">
+        <div style="max-width: 1024px; margin: 0 auto;">
+            <div class="section-header">
+                <span class="section-eyebrow">Education</span>
+                <h2 class="section-title">McMaster University</h2>
+                <p class="section-description">
+                    Bachelor of Electrical Engineering — 4th Year<br>
+                    September 2021 to Present
+                </p>
+            </div>
+            
+            <div class="glass-grid grid-2">
+                <div class="glass-card fade-in">
+                    <h3>Core Curriculum</h3>
+                    <p>Specialized in embedded systems, high-performance programming, and control systems.</p>
+                    <ul class="card-list">
+                        <li>Embedded Systems & Real-time Programming</li>
+                        <li>Computer Communication Networks</li>
+                        <li>Digital Signal Processing</li>
+                        <li>Power Electronics & Control Systems</li>
+                        <li>Data Structures & Algorithms</li>
+                        <li>Microprocessors & Logic Design</li>
+                    </ul>
+                </div>
+                <div class="glass-card fade-in">
+                    <h3>Technical Skills</h3>
+                    <p>Proficient in industry-standard tools for electrical design and embedded development.</p>
+                    <div class="pills" style="margin-top: 20px;">
+                        <span class="pill">C/C++</span>
+                        <span class="pill">Python</span>
+                        <span class="pill">MATLAB</span>
+                        <span class="pill">SystemVerilog</span>
+                        <span class="pill">PCB Design</span>
+                        <span class="pill">Linux</span>
+                        <span class="pill">ROS</span>
+                        <span class="pill">CUDA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
     <section id="contact">
         <div class="section-header" style="text-align: center;">
             <h2 class="section-title" style="font-size: 64px; margin-bottom: 32px;">Let's connect.</h2>
             <p class="section-description" style="margin: 0 auto;">
-                Open to opportunities in electrical engineering, embedded systems, and creative technology.
+                Open to opportunities in embedded systems, firmware engineering, and autonomous systems.
             </p>
         </div>
         
         <div style="text-align: center; margin-top: 48px;">
-            <a href="mailto:sukhambabra@gmail.com" class="btn-primary" style="font-size: 17px; padding: 16px 32px; background: #0071e3; color: white; text-decoration: none; border-radius: 980px; display: inline-block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+            <!-- Email button with mailto and clipboard fallback -->
+            <button onclick="handleEmail()" style="display: inline-block; font-size: 17px; font-weight: 400; padding: 16px 32px; background: #0071e3; color: white; border: none; border-radius: 980px; cursor: pointer; transition: all 0.3s ease;">
                 sukhambabra@gmail.com
-            </a>
+            </button>
+            <p id="email-feedback" style="margin-top: 16px; font-size: 14px; color: #0071e3; opacity: 0; transition: opacity 0.3s;">Email copied to clipboard!</p>
             <div style="margin-top: 32px; font-size: 14px; color: var(--text-secondary);">
                 <a href="tel:+14168265482" style="color: inherit; text-decoration: none; margin-right: 24px;">+1 (416) 826-5482</a>
-                <a href="https://www.linkedin.com/in/sukhamrit-babra-a52626227/" style="color: #0066cc; text-decoration: none;">LinkedIn ›</a>
+                <a href="https://www.linkedin.com/in/sukhamrit-babra-a52626227/" target="_blank" style="color: #0066cc; text-decoration: none;">LinkedIn ›</a>
             </div>
         </div>
     </section>
@@ -714,13 +733,30 @@
     </footer>
 
     <script>
+        // Email handler - tries mailto, falls back to clipboard
+        function handleEmail() {
+            window.location.href = 'mailto:sukhambabra@gmail.com';
+            
+            setTimeout(() => {
+                navigator.clipboard.writeText('sukhambabra@gmail.com').then(() => {
+                    const feedback = document.getElementById('email-feedback');
+                    feedback.style.opacity = '1';
+                    setTimeout(() => {
+                        feedback.style.opacity = '0';
+                    }, 3000);
+                }).catch(err => {
+                    console.log('Clipboard failed:', err);
+                });
+            }, 500);
+        }
+        
         // Smooth scroll function with offset for fixed navbar
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
             if (element) {
-                const navbarHeight = 52; // Height of the fixed navbar
+                const navbarHeight = 52;
                 const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20; // Extra 20px padding
+                const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
                 
                 window.scrollTo({
                     top: offsetPosition,
@@ -729,7 +765,7 @@
             }
         }
         
-        // Show/hide navbar on scroll with smooth animation
+        // Show/hide navbar on scroll
         const navbar = document.getElementById('navbar');
         const hero = document.querySelector('.hero-cover');
         let lastScrollY = 0;
@@ -739,7 +775,6 @@
             const currentScrollY = window.scrollY;
             const heroBottom = hero.offsetHeight - 100;
             
-            // Show navbar after scrolling past hero
             if (currentScrollY > heroBottom) {
                 navbar.classList.add('visible');
             } else {
